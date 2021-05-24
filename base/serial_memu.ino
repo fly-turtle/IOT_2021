@@ -17,8 +17,11 @@ void serial_loop(){
     switch(input_menu){
       case '1':
         timer.enable(led_digi_timer);
+        digitalWrite(RED, HIGH); //빨강 LED의 첫 값을 HIGH로 설정
         timer.disable(led_anal_timer);
-        digitalWrite(YELLOW, LOW);
+        //digitalWrite(YELLOW, LOW); //노랑 LED 끄고
+        analogWrite(YELLOW, 0);
+        i = 0;  //i 값을 초기화
         timer.disable(sound_timer);
         timer.disable(ultra_timer);
         timer.disable(servo_timer);
@@ -28,7 +31,7 @@ void serial_loop(){
 
       case '2':
         timer.disable(led_digi_timer);
-        digitalWrite(RED, HIGH); // LED 끄기
+        digitalWrite(RED, LOW);
         digitalWrite(BLUE, LOW);        
         timer.enable(led_anal_timer);
         timer.disable(sound_timer);
@@ -41,10 +44,12 @@ void serial_loop(){
 
       case '3':
         timer.disable(led_digi_timer);
-        digitalWrite(RED, HIGH); // LED 끄기
+        digitalWrite(RED, LOW); // LED 끄기
         digitalWrite(BLUE, LOW);        
         timer.disable(led_anal_timer);
-        digitalWrite(YELLOW, LOW);        
+        //digitalWrite(YELLOW, LOW);        
+        analogWrite(YELLOW, 0);
+        i = 0;
         timer.enable(sound_timer);
         timer.disable(ultra_timer);
         timer.disable(servo_timer);
@@ -55,10 +60,12 @@ void serial_loop(){
 
       case '4':
         timer.disable(led_digi_timer);
-        digitalWrite(RED, HIGH); // LED 끄기
+        digitalWrite(RED, LOW); // LED 끄기
         digitalWrite(BLUE, LOW);        
         timer.disable(led_anal_timer);
-        digitalWrite(YELLOW, LOW);
+        //digitalWrite(YELLOW, LOW);
+        analogWrite(YELLOW, 0);
+        i = 0;
         timer.disable(sound_timer);
         servo.detach();
         timer.enable(ultra_timer);
@@ -69,10 +76,12 @@ void serial_loop(){
 
       case '5':
         timer.disable(led_digi_timer);
-        digitalWrite(RED, HIGH); // LED 끄기
+        digitalWrite(RED, LOW); // LED 끄기
         digitalWrite(BLUE, LOW);        
         timer.disable(led_anal_timer);
-        digitalWrite(YELLOW, LOW);
+        //digitalWrite(YELLOW, LOW);
+        analogWrite(YELLOW, 0);
+        i = 0;
         timer.disable(sound_timer);
         timer.disable(ultra_timer);
         servo.attach(servo_pin);
@@ -83,10 +92,12 @@ void serial_loop(){
 
       case '6':
         timer.disable(led_digi_timer);
-        digitalWrite(RED, HIGH); // LED 끄기
+        digitalWrite(RED, LOW); // LED 끄기
         digitalWrite(BLUE, LOW);        
         timer.disable(led_anal_timer);
-        digitalWrite(YELLOW, LOW);
+        //digitalWrite(YELLOW, LOW);
+        analogWrite(YELLOW, 0);
+        i = 0;
         timer.disable(sound_timer);
         timer.disable(ultra_timer);
         timer.disable(servo_timer);
@@ -96,10 +107,12 @@ void serial_loop(){
 
       case '7':
         timer.disable(led_digi_timer);
-        digitalWrite(RED, HIGH); // LED 끄기
+        digitalWrite(RED, LOW); // LED 끄기
         digitalWrite(BLUE, LOW);        
         timer.disable(led_anal_timer);
-        digitalWrite(YELLOW, LOW);
+        //digitalWrite(YELLOW, LOW);
+        analogWrite(YELLOW, 0);
+        i = 0;
         timer.disable(sound_timer);
         timer.disable(ultra_timer);
         timer.disable(servo_timer);

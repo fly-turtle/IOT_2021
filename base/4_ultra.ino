@@ -1,5 +1,7 @@
 //4_ultra
 
+//http://raduino.tistory.com/28 : 초음파 센서를 통한 거리측정
+
 #define TRIG 5
 #define ECHO 4
 
