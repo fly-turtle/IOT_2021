@@ -9,7 +9,7 @@ void led_digi_setup(){
   pinMode(RED, OUTPUT);
   pinMode(BLUE, OUTPUT);
 
-/*  digitalWrite(RED, HIGH); // 아날로그와 병행 처리 시
+ /* digitalWrite(RED, HIGH); // 아날로그와 병행 처리 시
   digitalWrite(BLUE, LOW); */
   led_digi_timer = timer.setInterval(500, led_digi_loop);
   timer.disable(led_digi_timer);

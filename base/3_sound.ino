@@ -16,7 +16,7 @@ void sound_loop(){
   for(int i = 7; i<=13; i++){
     digitalWrite(i, LOW);
   }
-  int sound_chk = map(analogRead(A0), 0, 1024, 7, 14);
+  int sound_chk = map(analogRead(A0), 0, 900, 6, 14); //내일 이거 가지고 Jukbox
 //  Serial.print("sound : ");
 //  Serial.println(analogRead(A0));
   for(int i = 7; i<=sound_chk; i++){

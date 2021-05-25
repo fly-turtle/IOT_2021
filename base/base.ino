@@ -13,6 +13,7 @@ void setup() {
   sound_setup();
   ultra_setup();
   servo_setup();
+  ultra_servo_setup();
   Buzzer_setup();
 
   serial_setup();
@@ -28,6 +29,7 @@ void loop() {
 //  sound_loop();
 //  ultra_loop();
 //  servo_loop();
+//  ultra_servo_loop();
 
   serial_loop();
 }
