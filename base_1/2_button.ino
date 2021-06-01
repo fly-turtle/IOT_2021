@@ -31,11 +31,11 @@ void button_setup(){
 void button_loop(){
   
   if(digitalRead(RED_b) == LOW) {
-    Serial.println("RED_b");
+    //Serial.println("RED_b");
     gr_act = true;
-    Serial.print("red_count : ");
+    /*Serial.print("red_count : ");
     Serial.println(red_count);
-    Serial.println(digitalRead(8));
+    Serial.println(digitalRead(8));*/
     digitalWrite(red_count, digitalRead(red_count)^1);
     red_count -= red_incr;
     if(red_count <= 8){
@@ -49,7 +49,7 @@ void button_loop(){
     
   }
   if(digitalRead(GREEN_b) == LOW) {
-    Serial.println("GREEN_b");
+    //Serial.println("GREEN_b");
     red_count = 13;
     if(gr_act == true){
       for(int i = 13; i>= 8; i-=2){
@@ -57,16 +57,17 @@ void button_loop(){
       }
       gr_act = false;
     }
-    for(int i = 13; i>= 8; i-=2){
+    else {
+      for(int i = 13; i>= 8; i-=2){
+        digitalWrite(i, digitalRead(i)^1);
+      }
+      for(int i = 12; i>= 8; i-=2){
       digitalWrite(i, digitalRead(i)^1);
-      
-    }
-    for(int i = 12; i>= 8; i-=2){
-      digitalWrite(i, digitalRead(i)^1);
+      }  
     }
   }
   if(digitalRead(BLUE_b) == LOW) {
-    Serial.println("BLUE_b");
+    //Serial.println("BLUE_b");
     for(int i = 8; i<=13; i++){
       digitalWrite(i, LOW);
     }
