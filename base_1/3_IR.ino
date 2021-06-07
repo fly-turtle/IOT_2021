@@ -57,9 +57,7 @@ void led_off(){
   for(int i = 8; i >= 13; i++){
     digitalWrite(i, LOW);
   }
-  analogWrite(RED,0);
-  analogWrite(BLUE,0);
-  analogWrite(GREEN,0);
-  red_count = 13;
-  gr_act = true;        
+  red_count = 13; //led 초기화
+  gr_act = true; 
+  three_led(0, 0, 0);      
 }

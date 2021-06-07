@@ -33,6 +33,7 @@ void button_loop(){
   if(digitalRead(RED_b) == LOW) {
     //Serial.println("RED_b");
     gr_act = true;
+    three_led(0, 0, 0); //3색 LED 끄기
     /*Serial.print("red_count : ");
     Serial.println(red_count);
     Serial.println(digitalRead(8));*/
@@ -51,19 +52,20 @@ void button_loop(){
   if(digitalRead(GREEN_b) == LOW) {
     //Serial.println("GREEN_b");
     red_count = 13;
-    if(gr_act == true){
+    three_led(0, 0, 0); //3색 LED 끄기
+    if(gr_act == true){  //gr_act == true 이면 LED들 초기셋팅
       for(int i = 13; i>= 8; i-=2){
         digitalWrite(i, HIGH);
+      }
+      for(int i = 12; i>= 8; i-=2){
+        digitalWrite(i, LOW);
       }
       gr_act = false;
     }
     else {
-      for(int i = 13; i>= 8; i-=2){
+      for(int i = 13; i>= 8; i--){
         digitalWrite(i, digitalRead(i)^1);
-      }
-      for(int i = 12; i>= 8; i-=2){
-      digitalWrite(i, digitalRead(i)^1);
-      }  
+      } 
     }
   }
   if(digitalRead(BLUE_b) == LOW) {
@@ -71,10 +73,14 @@ void button_loop(){
     for(int i = 8; i<=13; i++){
       digitalWrite(i, LOW);
     }
-    analogWrite(RED,random(0, 255));
-    analogWrite(BLUE,random(0, 255));
-    analogWrite(GREEN,random(0, 255));
+    three_led(random(0,255),random(0,255),random(0,255));
     red_count = 13;
     gr_act = true;
   }
+}
+
+void three_led(int red, int blue, int green){
+  analogWrite(RED, red);
+  analogWrite(BLUE, blue);
+  analogWrite(GREEN, green); 
 }
