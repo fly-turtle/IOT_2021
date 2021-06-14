@@ -16,7 +16,8 @@ void sound_loop(){
   for(int i = 8; i<=13; i++){
     digitalWrite(i, LOW);
   }
-  int sound_chk = map(analogRead(sound), 0, 900, 4, 14); 
+  int sound_chk = map(analogRead(sound), 0, 900, 7, 14);
+  sound_chk = constrain(sound_chk, 7, 13);
 //  Serial.print("sound : ");
 //  Serial.println(analogRead(A0));
   for(int i = 8; i<=sound_chk; i++){
